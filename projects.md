@@ -13,7 +13,7 @@ order: 2
 ## Games {#games}  
  
 ### [RogueFrame](https://github.com/Hypersycos/RogueFrame)
-![Image of RogueFrame test range]({{ site.baseurl }}public/images/RogueFrame.webp)
+![Image of RogueFrame test range]({{ site.baseurl }}/public/images/RogueFrame.webp)
 RogueFrame (better name pending..) is a prototype for a class-based horde shooter. It aims to have fast-paced, engaging gunplay and abilities, while also having rich class customisation. Implemented in Unity.
 
 ### [SpellCast](https://hypersycos.itch.io/spellcast)
@@ -21,11 +21,11 @@ RogueFrame (better name pending..) is a prototype for a class-based horde shoote
 SpellCast is a prototype for a competitive arena game, implemented in Unity. Both teams race to destroy a central objective, unlocked by completing individual objectives unique to each class.
 
 ### [MEGANAUGHTSANDCROSSES](https://github.com/Hypersycos/MEGANOUGHTSANDCROSSES)
-![Image of MEGANAUGHTSANDCROSSES gameplay]({{ site.baseurl }}public/images/MEGANAUGHTSANDCROSSES.webp)
+![Image of MEGANAUGHTSANDCROSSES gameplay]({{ site.baseurl }}/public/images/MEGANAUGHTSANDCROSSES.webp)
 A game of naughts and crosses, played with sub-grids of naughts and crosses. Playing a position in a sub-grid forces your opponent to play in the corresponding sub-grid. Fully networked, implemented in pygame.
 
 ### [3D Naughts and Crosses](https://github.com/Hypersycos/3D-Noughts-and-Crosses)
-![Image of 3D Naughts and Crosses gameplay]({{ site.baseurl }}public/images/3DNaughtsAndCrosses.webp)
+![Image of 3D Naughts and Crosses gameplay]({{ site.baseurl }}/public/images/3DNaughtsAndCrosses.webp)
 Multiple naughts and crosses grids stacked on top of each other, allowing for 2+ players to compete. Many aspects can be modified, and it can be played in true 3D or the more traditional side-by-side 2D view. Implemented in pygame.
 
 ## Game-related {#game-related}  

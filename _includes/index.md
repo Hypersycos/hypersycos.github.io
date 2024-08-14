@@ -6,7 +6,7 @@ I have experience with:
 - Web Development with Python (Django, Flask) and Javascript (Svelte)
 - Industry tools such as git, GitHub and Unix CLIs
 
-[CV]({{ site.baseurl }}download/Joshua Pollick Resume.pdf){:target="_blank"}
+[CV]({{ site.baseurl }}/download/Joshua Pollick Resume.pdf){:target="_blank"}
 
 ## Hobbies
 I also
