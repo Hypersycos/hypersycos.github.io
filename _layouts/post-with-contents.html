@@ -5,6 +5,14 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
+  <nav class="toc">
+    <h2>Contents</h2>
+    {% assign ordered = page.ordered | default: false %}
+    {% assign flat_toc = page.flat_toc | default: false %}
+    {% assign h_min = page.toc_min | default: 1 %}
+    {% assign h_max = page.toc_max | default: 6 %}
+    {% include toc.html html=content sanitize=sanitize class="inline_toc" id="inline_toc" h_min=h_min h_max=h_max flat_toc=flat_toc item_class="toc_item%level%" submenu_class="toc_menu%level%" ordered=ordered %}
+  </nav>
   {{ content }}
 </div>
 

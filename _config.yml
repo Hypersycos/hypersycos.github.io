@@ -10,13 +10,18 @@ title:            Hypersycos
 tagline:          ''
 description:      ''
 url:              http://hyde.getpoole.com
-baseurl:          /
+baseurl:          ""
 
 author:
   name:           'Joshua Pollick'
   url:            
 
 paginate:         5
+
+collections:
+  warframe_reworks:
+    output: true
+    permalink: "/warframe reworks/:name/"
 
 # Custom vars
 version:          2.1.0
