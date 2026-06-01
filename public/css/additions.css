@@ -63,3 +63,7 @@
 .toc ul {
   margin-bottom: 0px;
 }
+
+.sidebar-image:hover ~ .sidebar-about a {
+  text-decoration: underline;
+}
