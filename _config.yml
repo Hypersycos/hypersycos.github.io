@@ -22,6 +22,9 @@ collections:
   warframe_reworks:
     output: true
     permalink: "/warframe-reworks/:name/"
+  projects:
+    output: true
+    permalink: "/projects/:name/"
 
 # Custom vars
 version:          2.1.0
