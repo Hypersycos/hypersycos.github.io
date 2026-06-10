@@ -88,27 +88,16 @@ order: 3
     {% assign cat = pages | where: "name", cat_name | first %}
     <h2>{{ cat.name }}</h3>
     <div class="project-category">
-    {% for page in cat.items %}
+    {% for page in cat.items | sort: "date" %}
         <div class="project">
-            <!-- <img src="{{ site.baseurl }}/public/images/projects/previews/{{page.path | split: '/' | last | split: '.' | first}}.webp"> -->
+            {% assign title = page.path | split: '/' | last | split: '.' | first %}
             <div class="project-img">
-                <a href="{{ page.url }}"><img src = "{{ site.baseurl }}/public/images/RogueFrame.webp"></a>
+                <a href="{{ page.url }}"><img src = "{{ site.baseurl }}/public/images/projects/previews/{{title}}.webp"></a>
             </div>
             <div class="project-details">
                 <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
                 <p id="date">{{ page.date | date_to_string }}</p>
-                <p id="description">{{ page.description }}I have a very important description</p>
-            </div>
-        </div>
-        <div class="project">
-            <!-- <img src="{{ site.baseurl }}/public/images/projects/previews/{{page.path | split: '/' | last | split: '.' | first}}.webp"> -->
-            <div class="project-img">
-                <a href="{{ page.url }}"><img src = "{{ site.baseurl }}/public/images/MEGANAUGHTSANDCROSSES.webp"></a>
-            </div>
-            <div class="project-details">
-                <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-                <p id="date">{{ page.date | date_to_string }}</p>
-                <p id="description">{{ page.description }}I also have a very important description</p>
+                <p id="description">{{ page.description }}</p>
             </div>
         </div>
     {% endfor %}
