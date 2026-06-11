@@ -8,8 +8,23 @@ order: 3
 .project-category
 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+}
+
+@media (min-width: 82em)
+{
+    .project-category
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 106em)
+{
+    .project-category
+    {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .project
@@ -20,19 +35,29 @@ order: 3
     border-style: solid;
 }
 
-.project:hover .project-img
+/* .project:hover .project-img
 {
     max-height: 100%;
 }
 
+.project:hover .project-img img
+{
+    border-radius: 0;
+} */
+
 .project-img
 {
     margin: 5px 5px 0 5px;
-    overflow: hidden;
     max-height: 200px;
-    transition: max-height 0.4s ease;
+    /* overflow: hidden;
+    transition: max-height 0.4s ease; */
     display: flex;
 }
+
+/* .project-img img
+{
+    transition: border-radius 0.4s linear;
+} */
 
 .project a
 {
@@ -75,9 +100,26 @@ order: 3
     align-self: center;
 }
 
+.project-details #techs
+{
+    padding: 0 10px;
+    color:gray;
+    line-height: 1;
+    font-size: 14px;
+    text-align: center;
+    align-self: center;
+    margin-bottom: .6em;
+}
+
 .project-details #description
 {
     padding: 0 10px;
+    line-height: 1.3;
+}
+
+.project-details #description a
+{
+    display: inline;
 }
 </style>
 
@@ -87,17 +129,36 @@ order: 3
 {% for cat_name in category_order %}
     {% assign cat = pages | where: "name", cat_name | first %}
     <h2>{{ cat.name }}</h3>
+    {% assign cat_items = cat.items | sort: "date" | reverse %}
     <div class="project-category">
-    {% for page in cat.items | sort: "date" %}
+    {% for page in cat_items %}
         <div class="project">
+            {% if page.external_preview %}
+            {% assign imgpath = page.external_preview %}
+            {% assign display_img = true %}
+            {% else %}
             {% assign title = page.path | split: '/' | last | split: '.' | first %}
+            {% assign imgpath = site.baseurl | append: "/public/images/projects/previews/" | append: title | append: ".webp" %}
+            {% assign file = site.static_files | where: "path", imgpath | first %}
+            {% assign display_img = file %}
+            {% endif %}
             <div class="project-img">
-                <a href="{{ page.url }}"><img src = "{{ site.baseurl }}/public/images/projects/previews/{{title}}.webp"></a>
+                {% if display_img %}
+                <a href="{{ page.url }}"><img src = "{{ site.baseurl }}{{ imgpath }}"></a>
+                {% endif %}
             </div>
             <div class="project-details">
                 <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-                <p id="date">{{ page.date | date_to_string }}</p>
-                <p id="description">{{ page.description }}</p>
+                {% if page.hidedate %}
+                {% else %}
+                <p id="date">{{ page.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}</p>
+                {% endif %}
+                <p id="techs">{{ page.languages | concat: page.technologies | join: ", " }}</p>
+                {% if description %}
+                {% else %}
+                <br>
+                {% endif %}
+                <p id="description">{{ page.description | markdownify | remove_first: "<p>" | remove_last: "</p>" }}</p>
             </div>
         </div>
     {% endfor %}

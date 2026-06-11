@@ -67,3 +67,12 @@
 .sidebar-image:hover ~ .sidebar-about a {
   text-decoration: underline;
 }
+
+.project-images {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.project-skill {
+  margin-bottom: 0;
+}

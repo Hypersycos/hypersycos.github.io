@@ -3,6 +3,33 @@ layout: default
 ---
 
 <div class="page">
-  <h1 class="page-title">{{ page.title }}</h1>
-  {{ content }}
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.hidedate %}
+    {% else %}
+    <span class="post-date">{{ page.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}</span>
+    {% endif %}
+    
+    {% if page.external_preview %}
+    {% assign imgpath = page.external_preview %}
+    {% assign display_img = true %}
+    {% else %}
+    {% assign title = page.path | split: '/' | last | split: '.' | first %}
+    {% assign imgpath = site.baseurl | append: "/public/images/projects/previews/" | append: title | append: ".webp" %}
+    {% assign file = site.static_files | where: "path", imgpath | first %}
+    {% assign display_img = file %}
+    {% endif %}
+    <div class="links">
+        {% for link in page.links %}
+        <a href="{{link[1]}}">{{link[0]}}</a>
+        {% endfor %}
+    </div>
+    <div class="project-images">
+        {% if display_img %}
+        <img src = "{{ site.baseurl }}{{ imgpath }}">
+        {% endif %}
+    </div>
+    <p class="project-skill">Languages: {{ page.languages | join: ", " }}</p>
+    <p class="project-skill">Technologies: {{ page.technologies | join: ", " }}</p>
+    <p class="project-skill">Skills: {{ page.skills | join: ", " }}</p>
+    {{ content }}
 </div>
