@@ -22,12 +22,15 @@ collections:
   warframe_reworks:
     output: true
     permalink: "/warframe-reworks/:name/"
+    sort_by: date
   projects:
     output: true
     permalink: "/projects/:name/"
+    sort_by: date
   sidebar:
     output: true
     permalink: "/:name/"
+    sort_by: order
 
 # Custom vars
 version:          2.1.0

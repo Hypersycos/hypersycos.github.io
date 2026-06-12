@@ -106,3 +106,14 @@
   transform: translate(0, .125em);
   display: inline-block;
 }
+
+.sidebar-nav-subitem
+{
+  margin-left: 2em;
+  margin-top: -.5em;
+}
+
+.sidebar-nav-item.active
+{
+  pointer-events: none;
+}

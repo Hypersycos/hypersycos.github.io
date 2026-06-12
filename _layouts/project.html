@@ -37,5 +37,12 @@ layout: default
     <p class="project-skill">Languages: {{ page.languages | join: ", " }}</p>
     <p class="project-skill">Technologies: {{ page.technologies | join: ", " }}</p>
     <p class="project-skill">Skills: {{ page.skills | join: ", " }}</p>
+
+    {% assign stripped_content = content | strip_newlines %}
+
+    {% if stripped_content == "" %}
+    <img style="object-fit: cover;object-position: center;aspect-ratio: 2.5;" src="https://upload.wikimedia.org/wikipedia/en/1/1d/Page_Under_Construction.png">
+    {% else %}
     {{ content }}
+    {% endif %}
 </div>
