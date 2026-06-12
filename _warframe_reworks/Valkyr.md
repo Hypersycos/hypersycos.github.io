@@ -20,6 +20,7 @@ I aim to have Valkyr occupy a "Berserker" theme. Some overlap with Voruna & Garu
 ## Base Stats
 
 > For a supposedly tanky frame, Valkyr's stats are pretty mediocre. There are plenty of frames with more base HP and similar armour to Valkyr. This brings her up a bit.
+
  - Valkyr's Base Health is increased to 500/600
 
 ## Passive
