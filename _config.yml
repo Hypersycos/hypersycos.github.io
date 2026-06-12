@@ -25,6 +25,9 @@ collections:
   projects:
     output: true
     permalink: "/projects/:name/"
+  sidebar:
+    output: true
+    permalink: "/:name/"
 
 # Custom vars
 version:          2.1.0

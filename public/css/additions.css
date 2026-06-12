@@ -54,6 +54,16 @@
     color: rgba(255, 255, 255, .75);
 }
 
+/*.social-links a .itch {
+    transition: background-color 300ms ease, margin-top 300ms ease;
+    background-color: rgba(255, 255, 255, .25);
+}
+
+.social-links a:hover .itch {
+    background-color: rgba(255, 255, 255, .75);
+}*/
+
+
 @media (min-width: 48em) {
   .content {
     max-width: calc(100% - 26em);
@@ -69,7 +79,7 @@
 }
 
 .project-links a {
-  margin-right: 1.5em;
+  margin-right: .75rem;
 }
 
 .project-images {
@@ -79,4 +89,20 @@
 
 .project-skill {
   margin-bottom: 0;
+}
+
+.page, .post {
+  max-width: 45em;
+  margin: 0 auto;
+}
+
+.itch
+{
+  width: 1em;
+  height: 1em;
+  mask: url('/public/icons/itch.svg') no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+  transform: translate(0, .125em);
+  display: inline-block;
 }
