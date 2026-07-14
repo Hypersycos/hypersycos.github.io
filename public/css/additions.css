@@ -109,11 +109,60 @@
 
 .sidebar-nav-subitem
 {
-  margin-left: 2em;
-  margin-top: -.5em;
+  margin-top: -.75em;
+}
+
+.sidebar-nav-subitem a
+{
+  color: #fff6;
+}
+
+@media (min-width: 48em)
+{
+  .sidebar-nav-subitem
+  {
+    margin-left: 2em;
+    margin-top: -.5em;
+  }
+
+  .sidebar-nav-subitem a
+  {
+    color: #fff;
+  }
 }
 
 .sidebar-nav-item.active
 {
   pointer-events: none;
+}
+
+.image-float-margin
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #5557;
+  width: 100vw;
+  height: 100vh;
+  float: left;
+  align-content: center;
+}
+
+.image-float-container
+{
+  width: 90vw;
+  height: 90vh;
+  margin: auto;
+}
+
+.image-float
+{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.no-display
+{
+  display: none !important;
 }

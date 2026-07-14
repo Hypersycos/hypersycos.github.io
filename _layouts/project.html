@@ -31,7 +31,7 @@ layout: default
     </div>
     <div class="project-images">
         {% if display_img %}
-        <img src = "{{ site.baseurl }}{{ imgpath }}">
+        <img src = "{{ site.baseurl }}{{ imgpath }}" onclick="javascript:document.getElementsByClassName('no-display')[0].classList.remove('no-display');">
         {% endif %}
     </div>
     <p class="project-skill">Languages: {{ page.languages | join: ", " }}</p>
@@ -47,3 +47,10 @@ layout: default
     {{ content }}
     {% endif %}
 </div>
+{% if display_img %}
+<div class="image-float-margin no-display">
+    <div class="image-float-container">
+        <img class="image-float" src = "{{ site.baseurl }}{{ imgpath }}" onclick="javascript:document.getElementsByClassName('image-float-margin')[0].classList.add('no-display');">
+    </div>
+</div>
+{% endif %}
