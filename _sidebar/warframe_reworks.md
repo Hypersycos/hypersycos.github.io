@@ -3,6 +3,7 @@ layout: page
 title: Warframe Reworks
 permalink: warframe-reworks
 order: 3
+hide: true
 ---
 
 {% for rework in site.warframe_reworks %}

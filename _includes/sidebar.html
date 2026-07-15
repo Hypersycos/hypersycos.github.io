@@ -35,7 +35,7 @@
       {% assign pages_list = index_list | concat: site.sidebar | sort:"order" %}
       {% for node in pages_list %}
         {% if node.title != null %}
-        {% if not node.hide %}
+        {% if node.hide != true %}
           {% assign filtered_url = page.url | slice:0, node.url.size %}
             <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
             {% if filtered_url == node.url and filtered_url.size > 2 and node.url.size < page.url.size %}
