@@ -129,10 +129,12 @@ order: 2
 
 {% for cat_name in category_order %}
     {% assign cat = pages | where: "name", cat_name | first %}
+    {% assign extra = site.pages | where: "project_category", cat_name %}
     <h2>{{ cat.name }}</h3>
-    {% assign cat_items = cat.items | sort: "date" | reverse %}
+    {% assign cat_items = cat.items | concat: extra | sort: "date", "last" | reverse %}
     <div class="project-category">
     {% for page in cat_items %}
+        {% if page.hide != true %}
         <div class="project">
             {% if page.external_preview %}
             {% assign imgpath = page.external_preview %}
@@ -150,18 +152,17 @@ order: 2
             </div>
             <div class="project-details">
                 <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-                {% if page.hidedate %}
-                {% else %}
+                {% unless page.hidedate or page.date == false or page.date == nil %}
                 <p id="date">{{ page.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}</p>
-                {% endif %}
+                {% endunless %}
                 <p id="techs">{{ page.languages | concat: page.technologies | join: ", " }}</p>
-                {% if description %}
-                {% else %}
+                {% unless description %}
                 <br>
-                {% endif %}
+                {% endunless %}
                 <p id="description">{{ page.description | markdownify | remove_first: "<p>" | remove_last: "</p>" }}</p>
             </div>
         </div>
+        {% endif %}
     {% endfor %}
     </div>
 {% endfor %}

@@ -4,6 +4,7 @@ title: Warframe Reworks
 permalink: warframe-reworks
 order: 3
 hide: true
+project_category: Game Related
 ---
 
 {% for rework in site.warframe_reworks %}
