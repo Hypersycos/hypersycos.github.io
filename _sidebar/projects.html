@@ -129,9 +129,10 @@ order: 2
 
 {% for cat_name in category_order %}
     {% assign cat = pages | where: "name", cat_name | first %}
-    {% assign extra = site.pages | where: "project_category", cat_name %}
+    {% assign base_url = site.baseurl | append: "/" %}
+    {% assign extra = site.documents | where:"project_category",cat_name %}
     <h2>{{ cat.name }}</h3>
-    {% assign cat_items = cat.items | concat: extra | sort: "date", "last" | reverse %}
+    {% assign cat_items = cat.items | concat: extra | sort: "date" | reverse %}
     <div class="project-category">
     {% for page in cat_items %}
         {% if page.hide != true %}
@@ -155,7 +156,17 @@ order: 2
                 {% unless page.hidedate or page.date == false or page.date == nil %}
                 <p id="date">{{ page.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}</p>
                 {% endunless %}
-                <p id="techs">{{ page.languages | concat: page.technologies | join: ", " }}</p>
+
+                {% if page.languages %}
+                    {% assign techs = page.languages %}
+                {% else %}
+                    {% assign techs = [] %}
+                {% endif %}
+                {% if page.technologies %}
+                    {% assign techs = techs | concat: page.technologies %}
+                {% endif %}
+
+                <p id="techs">{{ techs | join: ", " }}</p>
                 {% unless description %}
                 <br>
                 {% endunless %}
