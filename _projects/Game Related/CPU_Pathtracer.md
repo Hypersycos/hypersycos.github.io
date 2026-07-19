@@ -2,7 +2,7 @@
 layout: project
 title: CPU Pathtracer
 date: 2026-05-9
-links: {github: "https://github.com/Hypersycos/RTBase"}
+links: {GitHub: "https://github.com/Hypersycos/RTBase"}
 coursework: true
 languages: [C++]
 technologies: []

@@ -2,7 +2,7 @@
 layout: project
 title: Vampire Survivors-like
 date: 2025-11-10
-links: {github: "https://github.com/Hypersycos/Vampire-Survivors-Assessment/"}
+links: {GitHub: "https://github.com/Hypersycos/Vampire-Survivors-Assessment/"}
 coursework: true
 technologies: []
 languages: [C++]

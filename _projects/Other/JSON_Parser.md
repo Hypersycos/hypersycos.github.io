@@ -2,7 +2,7 @@
 layout: project
 title: JSON Parser
 date: 2026-01-01
-links: {github: "https://github.com/Hypersycos/GEJsonParser"}
+links: {GitHub: "https://github.com/Hypersycos/GEJsonParser"}
 technologies: [JSON]
 languages: [C++]
 skills: []

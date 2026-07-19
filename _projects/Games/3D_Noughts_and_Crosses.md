@@ -2,7 +2,7 @@
 layout: project
 title: 3D Noughts and Crosses
 date: 2018-09-01
-links: {github: "https://github.com/Hypersycos/3D-Noughts-and-Crosses"}
+links: {GitHub: "https://github.com/Hypersycos/3D-Noughts-and-Crosses"}
 technologies: [pygame]
 languages: [Python]
 skills: [3D Maths]

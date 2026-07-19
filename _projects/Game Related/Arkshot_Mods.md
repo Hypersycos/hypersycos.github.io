@@ -3,7 +3,7 @@ layout: project
 title: Arkshot Mods
 date: 2023-03-10
 external_preview: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/468800/header.jpg"
-links: {github: "https://github.com/Hypersycos?tab=repositories&q=Arkshot"}
+links: {GitHub: "https://github.com/Hypersycos?tab=repositories&q=Arkshot"}
 technologies: [Unity, Harmony, BepinEx]
 languages: [C#, .NET CIL]
 skills: [Reverse Engineering]

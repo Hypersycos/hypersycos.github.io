@@ -59,7 +59,7 @@ order: 2
     transition: border-radius 0.4s linear;
 } */
 
-.project a
+.project-img a
 {
     display: flex;
     margin: 0 auto;
@@ -77,7 +77,8 @@ order: 2
 .project h3
 {
     margin: 0;
-    align-self: center
+    align-self: center;
+    text-align: center;
 }
 
 .project-img:hover ~ .project-details h3 a {
@@ -108,7 +109,6 @@ order: 2
     line-height: 1;
     font-size: 14px;
     text-align: center;
-    align-self: center;
     margin-bottom: .6em;
 }
 
@@ -121,6 +121,18 @@ order: 2
 .project-details #description a
 {
     display: inline;
+}
+
+.project-details #split-link-holder
+{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 10px;
+}
+
+.project-details .tech-link-holder #link-holder
+{
+    margin-top: -7px;
 }
 </style>
 
@@ -153,20 +165,46 @@ order: 2
             </div>
             <div class="project-details">
                 <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-                {% unless page.hidedate or page.date == false or page.date == nil %}
-                <p id="date">{{ page.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}</p>
-                {% endunless %}
+
+                {% capture project_links %}
+                <div id="link-holder">
+                    {% for link in page.links %}
+                        {% if link[0] == "GitHub" %}
+                            {% capture extra %}<i class="bi bi-github"></i>{% endcapture %}
+                        {% elsif "Itch.io,Nexus Mods" contains link[0] %}
+                            {% capture extra %}<div class="{{link[0] | slugify: 'latin'}}"></div>{% endcapture %}
+                        {% else %}
+                        <!-- {{link[0]}} -->
+                            {% assign extra = nil %}
+                        {% endif %}
+                        {% if extra %}
+                            <a href="{{link[1]}}" title="{{link[0]}}">{{extra}}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endcapture %}
 
                 {% if page.languages %}
                     {% assign techs = page.languages %}
                 {% else %}
-                    {% assign techs = [] %}
+                    {% assign techs = "" | split: "," %}
                 {% endif %}
                 {% if page.technologies %}
                     {% assign techs = techs | concat: page.technologies %}
                 {% endif %}
 
+                {% unless page.hidedate or page.date == false or page.date == nil %}
+                <div id="split-link-holder">
+                    {{ project_links }}
+                    <p id="date">{{ page.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}</p>
+                </div>
                 <p id="techs">{{ techs | join: ", " }}</p>
+                {% else %}
+                <div id="split-link-holder" class="tech-link-holder">
+                    {{ project_links }}
+                    <p id="techs">{{ techs | join: ", " }}</p>
+                </div>
+                {% endunless %}
                 {% unless description %}
                 <br>
                 {% endunless %}

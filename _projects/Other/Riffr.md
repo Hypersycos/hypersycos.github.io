@@ -4,7 +4,7 @@ title: Riffr
 date: 2021-03-10
 coursework: true
 group: true
-links: {github: "https://github.com/Riffr/riffr/commits/main/"}
+links: {GitHub: "https://github.com/Riffr/riffr/commits/main/"}
 youtube: "https://youtu.be/pq3UFd0-I8I"
 technologies: [React]
 languages: [TypeScript, HTML]

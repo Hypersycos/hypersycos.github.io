@@ -96,12 +96,24 @@
   margin: 0 auto;
 }
 
-.itch
+.itch-io
 {
   width: 1em;
   height: 1em;
   mask: url('/public/icons/itch.svg') no-repeat center;
   mask-size: contain;
+  background-color: currentColor;
+  transform: translate(0, .125em);
+  display: inline-block;
+}
+
+.nexus-mods
+{
+  width: 1em;
+  height: 1em;
+  mask: url('/public/icons/nexus.svg') no-repeat center;
+  mask-size: contain;
+  mask-mode: luminance;
   background-color: currentColor;
   transform: translate(0, .125em);
   display: inline-block;

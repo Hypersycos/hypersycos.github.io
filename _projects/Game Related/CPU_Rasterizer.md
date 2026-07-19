@@ -2,7 +2,7 @@
 layout: project
 title: CPU Rasterizer
 date: 2025-11-24
-links: {github: "https://github.com/Hypersycos/GERasterizer/"}
+links: {GitHub: "https://github.com/Hypersycos/GERasterizer/"}
 technologies: []
 languages: [C++]
 skills: [3D maths]

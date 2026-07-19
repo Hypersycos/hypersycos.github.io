@@ -3,7 +3,7 @@ layout: project
 title: Model Maker
 date: 2019-03-01
 coursework: true
-links: {github: "https://github.com/Hypersycos/Model-Maker"}
+links: {GitHub: "https://github.com/Hypersycos/Model-Maker"}
 technologies: [Qt]
 languages: [C++]
 skills: [2D Physics]

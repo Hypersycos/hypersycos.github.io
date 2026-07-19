@@ -3,8 +3,8 @@ layout: project
 title: Slay the Spire 2 Mods
 date: 2026-04-21
 external_preview: "https://staticdelivery.nexusmods.com/mods/8916/images/thumbnails/225/225-1774403071-1442201066.png"
-links: {github: "https://github.com/Hypersycos?tab=repositories&q=slay-the-spire-2",
-        nexus: "https://www.nexusmods.com/profile/Hypersycos/mods?gameId=8916"}
+links: {GitHub: "https://github.com/Hypersycos?tab=repositories&q=slay-the-spire-2",
+        "Nexus Mods": "https://www.nexusmods.com/profile/Hypersycos/mods?gameId=8916"}
 technologies: [Godot, Harmony, BepinEx]
 languages: [C#]
 skills: [Reverse Engineering]

@@ -2,7 +2,7 @@
 layout: project
 title: Incremental Backup
 date: 2021-08-28
-links: {github: "https://github.com/Hypersycos/IncrementalBackup"}
+links: {GitHub: "https://github.com/Hypersycos/IncrementalBackup"}
 technologies: []
 languages: [Java]
 skills: [Reverse Engineering]

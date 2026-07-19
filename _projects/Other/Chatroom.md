@@ -2,7 +2,7 @@
 layout: project
 title: Chatroom
 date: 2026-02-09
-links: {github: "https://github.com/Hypersycos/GEChatroom"}
+links: {GitHub: "https://github.com/Hypersycos/GEChatroom"}
 coursework: true
 technologies: [Dear ImGui, Winsock, FMOD]
 languages: [C++]

@@ -4,7 +4,7 @@ title: Skyfire Uprising
 date: 2026-05-20
 coursework: true
 group: true
-links: {github: "https://github.com/Games-Engineering-Team-2/WM9M5_Level2"}
+links: {GitHub: "https://github.com/Games-Engineering-Team-2/WM9M5_Level2"}
 technologies: [Unreal Engine 5]
 languages: [C++]
 skills: [Group Management, Collaboration Skills]

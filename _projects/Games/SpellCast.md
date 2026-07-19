@@ -3,7 +3,7 @@ layout: project
 title: SpellCast
 date: 2021-03-19
 external_preview: "https://img.itch.zone/aW1hZ2UvOTYyNjYyLzU0NjI1NTEucG5n/original/JQYaRw.png"
-links: {itch: "https://hypersycos.itch.io/spellcast"}
+links: {"Itch.io": "https://hypersycos.itch.io/spellcast"}
 technologies: [Unity, Mirror]
 languages: [C#]
 skills: [Networking, Time Management, Collaboration Skills]

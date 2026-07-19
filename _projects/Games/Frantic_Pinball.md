@@ -3,8 +3,8 @@ layout: project
 title: Frantic Pinball
 date: 2025-11-16
 group: true
-links: {itch: "https://hypersycos.itch.io/frantic-pinball",
-        github: "https://github.com/Games-Engineering-Grp-Game-Jam/PinballAirHockey"}
+links: {"Itch.io": "https://hypersycos.itch.io/frantic-pinball",
+        GitHub: "https://github.com/Games-Engineering-Grp-Game-Jam/PinballAirHockey"}
 technologies: [Unity]
 languages: [C#]
 skills: [Time Management, Group Management, Collaboration Skills]
