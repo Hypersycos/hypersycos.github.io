@@ -179,3 +179,19 @@
 {
   display: none !important;
 }
+
+.page-back
+{
+  position:absolute;
+  margin-top: -1.5em;
+}
+
+
+@media (min-width: 64em)
+{
+  .page-back
+  {
+    margin-top: .25em;
+    margin-left: -4em;
+  }
+}

@@ -160,7 +160,7 @@ order: 2
             {% endif %}
             <div class="project-img">
                 {% if display_img %}
-                <a href="{{ page.url }}"><img src = "{{ site.baseurl }}{{ imgpath }}"></a>
+                <a href="{{ page.url }}"><img src = {{ imgpath | relative_url }}></a>
                 {% endif %}
             </div>
             <div class="project-details">
