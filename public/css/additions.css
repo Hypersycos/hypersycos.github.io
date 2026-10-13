@@ -82,11 +82,6 @@
   margin-right: .75rem;
 }
 
-.project-images {
-  max-width: 50%;
-  margin: 0 auto;
-}
-
 .project-skill {
   margin-bottom: 0;
 }
@@ -148,7 +143,84 @@
   pointer-events: none;
 }
 
-.image-float-margin
+.no-display
+{
+  display: none !important;
+}
+
+.page-back
+{
+  position: absolute;
+  margin-top: -1.5em;
+}
+
+
+@media (min-width: 64em)
+{
+  .page-back
+  {
+    margin-top: .25em;
+    margin-left: -4em;
+  }
+}
+
+.project-images > #inner-images
+{
+  transition: filter 0.25s ease;
+}
+
+.project-images > #inner-images:hover
+{
+  filter: contrast(70%);
+}
+
+.project-images #inner-images
+{
+  max-width: max(640px, 50%);
+  cursor: pointer;
+
+  .slider-description
+  {
+    /* transform: translateY(-100%);
+    position: fixed;
+    border-bottom-top-radius: 5px;
+    border-bottom-top-radius: 5px;
+    top: 100%; */
+
+    padding: 5px 1em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  img
+  {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.stage-left-slider-img, .stage-right-slider-img, .exit-left-slider-img, .exit-right-slider-img, .active-slider-img
+{ 
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#inner-images
+{
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  /* overflow: hidden; */
+  height: fit-content;
+  position: relative;
+
+  img
+  {
+    margin: 0;
+  }
+}
+
+#outer-images.image-float-margin
 {
   position: fixed;
   left: 0;
@@ -164,34 +236,143 @@
 .image-float-container
 {
   width: 90vw;
-  height: 90vh;
+  height: 95vh;
   margin: auto;
-}
 
-.image-float
-{
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-}
-
-.no-display
-{
-  display: none !important;
-}
-
-.page-back
-{
-  position:absolute;
-  margin-top: -1.5em;
-}
-
-
-@media (min-width: 64em)
-{
-  .page-back
+  .stage-left-slider-img, .stage-right-slider-img, .exit-left-slider-img, .exit-right-slider-img, .active-slider-img
   {
-    margin-top: .25em;
-    margin-left: -4em;
+    max-width: 90vw;
+    max-height: 95vh;
+    align-self: center;
   }
+
+  img
+  {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.stage-left-slider-img, .stage-right-slider-img, .exit-left-slider-img, .exit-right-slider-img, .active-slider-img
+{
+  img
+  {
+    margin: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-left-slider-img, .exit-left-slider-img
+{
+  transform: translateX(-100%) !important;
+}
+
+.stage-right-slider-img, .exit-right-slider-img
+{
+  transform: translateX(100%) !important;
+}
+
+.stage-left-slider-img, .stage-right-slider-img, .exit-left-slider-img, .exit-right-slider-img
+{
+  pointer-events: none;
+  opacity: 0;
+}
+
+.active-slider-img
+{
+  transform: translateX(0%) !important;
+  opacity: 1;
+}
+
+.exit-left-slider-img, .exit-right-slider-img, .active-slider-img
+{
+  /*transition: transform 0.5s ease, opacity 0.5s linear;*/
+  transition: none;
+}
+
+.stage-left-slider-img, .stage-right-slider-img
+{
+  transition: none !important;
+}
+
+#outer-images
+{
+  display: flex;
+  position: relative;
+
+  button
+  {
+    padding: 0;
+    border: 0;
+    align-self: center;
+    font-size: 2em;
+    margin: 0 1rem;
+    cursor: pointer;
+
+    color: #000;
+    background: white;
+    border-radius: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: .9em;
+    height: .9em;
+    border-radius: 50%;
+
+    transition: color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0px 0px .2em .1em rgb(255, 255, 255);
+  }
+
+  button:hover
+  {
+    color: #666;
+    box-shadow: 0px 0px .4em .2em rgb(255, 255, 255);
+  }
+}
+
+.slider-description
+{
+  background: #000a;
+  color: white;
+  margin: 0;
+  align-self: center;
+  padding: 2px 1em;
+  text-align: center;
+}
+
+.slider-progress {
+  position: absolute;
+  top: -1em;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  background: #000a;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  padding: 0 5px;
+}
+
+.image-float-margin .slider-progress
+{
+  /* top: calc(2.5vh - min(2.5vh, 1em)); */
+  top: max(-2.5vh, -1em);
+  max-height: min(2.5vh, 1em);
+}
+
+/* Optional styling to make the current dot distinct */
+.slider-progress .bi-dot {
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+  width: 1em;
+  margin: 0 -.25em;
+}
+
+.slider-progress .bi-dot.active-dot {
+  opacity: 1;
+  transform: scale(1.2); /* Makes the active dot slightly larger */
 }

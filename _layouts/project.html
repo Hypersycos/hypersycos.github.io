@@ -10,14 +10,16 @@ layout: default
     {% endif %}
     
     {% if page.external_preview %}
-    {% assign imgpath = page.external_preview %}
+    {% assign preview_path = page.external_preview %}
     {% assign display_img = true %}
     {% else %}
     {% assign title = page.path | split: '/' | last | split: '.' | first %}
-    {% assign imgpath = site.baseurl | append: "/public/images/projects/previews/" | append: title | append: ".webp" %}
-    {% assign file = site.static_files | where: "path", imgpath | first %}
+    {% assign preview_path = site.baseurl | append: "/public/images/projects/previews/" | append: title | append: ".webp" %}
+    {% assign file = site.static_files | where: "path", preview_path | first %}
     {% assign display_img = file %}
     {% endif %}
+
+    {% assign img_path = "/public/images/projects/sliders/" | append: title | append: "/" | relative_url %}
 
     <div class="project-links">
         {% for link in page.links %}
@@ -29,11 +31,50 @@ layout: default
         <a href="{{link[1]}}">{% if extra %}{{extra}} {% endif %}{{link[0]}}</a>
         {% endfor %}
     </div>
-    <div class="project-images">
-        {% if display_img %}
-        <img src = {{ imgpath | relative_url }} onclick="javascript:document.getElementsByClassName('no-display')[0].classList.remove('no-display');" style="cursor:pointer;">
+
+    {% if display_img %}
+        {% assign images = page.images %}
+    {% else %}
+        {% assign images = page.images | where_exp:"file", "file.preview != true" %}
+    {% endif %}
+    {% assign image_count = images | size %}
+
+    {% if image_count > 0 %}
+    <div id="outer-images" class="project-images" onclick="null">
+        <div class="spacer"></div>
+        {% if image_count > 1 %}
+            <button onclick="prev(event)"><i class="fa-solid fa-circle-chevron-left"></i></button>
         {% endif %}
+        <div id="inner-images" onclick="toggleFullscreen(event)">
+            {% if image_count > 1 %}
+                <div class="slider-progress">
+                {% for img in images %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+                        class="bi bi-dot {% if forloop.first %}active-dot{% endif %}" 
+                        viewBox="0 0 16 16" data-index="{{ forloop.index0 }}">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"></path>
+                    </svg>
+                {% endfor %}
+                </div>
+            {% endif %}
+            {% for file in images %}
+                <div class="{% if forloop.first %}active-slider-img{% else %}exit-left-slider-img{% endif %}">
+                    {% if file.preview %}
+                        {% assign src = preview_path | relative_url %}
+                    {% else %}
+                        {% assign src = img_path | append: file.name %}
+                    {% endif %}
+                    <img src={{ src }}>
+                    <p class="slider-description">{{file.description}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% if image_count > 1 %}
+            <button onclick="next(event)"><i class="fa-solid fa-circle-chevron-right"></i></button>
+        {% endif %}
+        <div class="spacer"></div>
     </div>
+    {% endif %}
     <p class="project-skill">Languages: {{ page.languages | join: ", " }}</p>
     <p class="project-skill">Technologies: {{ page.technologies | join: ", " }}</p>
     <p class="project-skill">Skills: {{ page.skills | join: ", " }}</p>
@@ -47,10 +88,74 @@ layout: default
     {{ content }}
     {% endif %}
 </div>
-{% if display_img %}
-<div class="image-float-margin no-display"  onclick="javascript:document.getElementsByClassName('image-float-margin')[0].classList.add('no-display');">
-    <div class="image-float-container">
-        <img class="image-float" src = {{ imgpath | relative_url }}>
-    </div>
-</div>
+
+{% if image_count > 0 %}
+<script>
+    var isFullscreen = false;
+    var outer = document.getElementById("outer-images");
+    var inner = document.getElementById("inner-images");
+    var index = 1;
+    var images = inner.children;
+    var dots = document.getElementsByClassName("slider-progress")[0].children;
+
+    function toggleFullscreen(event)
+    {
+        if (isFullscreen)
+        {
+            outer.classList.remove("image-float-margin");
+            inner.classList.remove("image-float-container");
+            outer.classList.add("project-images");
+
+            inner.onclick = toggleFullscreen;
+            outer.onclick = null;
+        }
+        else
+        {
+            outer.classList.add("image-float-margin");
+            inner.classList.add("image-float-container");
+            outer.classList.remove("project-images");
+
+            outer.onclick = toggleFullscreen;
+            inner.onclick = null;
+        }
+        isFullscreen = !isFullscreen;
+        event.stopPropagation();
+    }
+
+    function next(event)
+    {
+        images[index].className = "exit-left-slider-img";
+        dots[index-1].classList.remove("active-dot");
+        index++;
+        if (index >= images.length)
+            index = 1;
+        images[index].className = "active-slider-img";
+        dots[index-1].classList.add("active-dot");
+
+        // requestAnimationFrame(() => {
+        //     requestAnimationFrame(() => {
+        //         images[index].className = "active-slider-img";
+        //     });
+        // });
+        event.stopPropagation();
+    }
+
+    function prev(event)
+    {
+        images[index].className = "exit-right-slider-img";
+        dots[index-1].classList.remove("active-dot");
+        index--;
+        if (index < 1)
+            index = images.length - 1;
+        images[index].className = "active-slider-img";
+        dots[index-1].classList.add("active-dot");
+
+        // requestAnimationFrame(() => {
+        //     requestAnimationFrame(() => {
+        //         images[index].className = "active-slider-img";
+        //     });
+        // });
+        event.stopPropagation();
+    }
+</script>
 {% endif %}

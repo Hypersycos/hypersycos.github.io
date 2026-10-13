@@ -32,6 +32,14 @@ collections:
     permalink: "/:name/"
     sort_by: order
 
+defaults:
+  - scope:
+      path: ""          # Applies to files matching this path
+      type: "projects"  # Your collection name (e.g., projects, posts, pages)
+    values:
+      images:
+        - preview: true
+
 # Custom vars
 version:          2.1.0
 
