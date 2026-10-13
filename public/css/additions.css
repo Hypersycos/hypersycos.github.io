@@ -252,6 +252,8 @@
     width: 100%;
     height: 100%;
     border-radius: 0;
+    min-width: 0;
+    min-height: 0;
   }
 }
 
@@ -268,12 +270,12 @@
 
 .stage-left-slider-img, .exit-left-slider-img
 {
-  transform: translateX(-100%) !important;
+  /* transform: translateX(-100%) !important; */
 }
 
 .stage-right-slider-img, .exit-right-slider-img
 {
-  transform: translateX(100%) !important;
+  /* transform: translateX(100%) !important; */
 }
 
 .stage-left-slider-img, .stage-right-slider-img, .exit-left-slider-img, .exit-right-slider-img
