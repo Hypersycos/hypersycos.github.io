@@ -65,7 +65,9 @@ layout: default
                         {% assign src = img_path | append: file.name %}
                     {% endif %}
                     <img src={{ src }}>
+                    {% if file.description %}
                     <p class="slider-description">{{file.description}}</p>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
