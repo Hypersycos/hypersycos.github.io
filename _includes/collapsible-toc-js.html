@@ -1,0 +1,19 @@
+<script>
+    const allTOCs = document.querySelectorAll('.collapsible-toc h2');
+
+    allTOCs.forEach(btn =>
+    {
+        btn.addEventListener("click", function(event)
+        {
+            const isFloating = this.closest('.floating-toc') !== null;
+            const isDesktop = window.matchMedia("(min-width: 120em)").matches;
+
+            // Block clicks ONLY if it's the floating layout on a desktop screen
+            if (isFloating && isDesktop) {
+                return; 
+            }
+            this.parentElement.classList.add('was-clicked');
+            this.parentElement.classList.toggle('hidden');
+        });
+    });
+</script>

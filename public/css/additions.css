@@ -378,3 +378,126 @@
   color: #fff;
   transform: scale(1.2); /* Makes the active dot slightly larger */
 }
+
+@media (min-width: 120em)
+{
+  .floating-toc
+  {
+    position: fixed;
+    top: 6em;
+    left: 23.5rem;
+    width: calc((100vw - 29rem - 45em) / 2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: calc(100vh - 12em);
+
+    .toc
+    {
+      overflow: auto;
+      border-radius: 5px;
+      border: #999 solid 1px;
+      padding: 1rem 1rem;
+    }
+
+    h2
+    {
+      margin-top: 0;
+      cursor: default !important;
+      background: none !important;
+      padding: 0 !important;
+      border-bottom: none !important;
+    }
+
+    ul
+    {
+      padding-left: 1em !important;
+    }
+
+    .collapsible-toc ul {
+      display: block !important;
+      height: auto !important;
+      visibility: visible !important;
+      background: none !important;
+    }
+  }
+}
+
+.collapsible-toc
+{
+  h2
+  {
+    max-width: fit-content;
+    background: #62e3e7;
+    border-radius: 5px;
+    padding: .1em 1em;
+    margin-bottom: 0;
+    transition: background .25s ease, border-bottom 0.25s ease;
+    border-bottom: solid #0000 0;
+  }
+
+  h2:hover
+  {
+    background: #92fcff;
+    cursor: pointer;
+  }
+
+  ul
+  {
+    display: block;
+    background: #ddd;
+    border-radius: 5px;
+    height: auto;
+    overflow: hidden;
+    visibility: visible;
+    transition: height 0.5s ease, display 0.5s ease, visibility 0.5s ease, padding 0.5s ease;
+
+    transition-behavior: allow-discrete;
+  }
+}
+
+.collapsible-toc > ul
+{
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.collapsible-toc.hidden
+{
+  h2
+  {
+    border-bottom: solid black;
+  }
+
+  ul
+  {
+    display: none;
+    height: 0;
+    visibility: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+
+@starting-style
+{
+  .collapsible-toc.was-clicked:not(.hidden) ul
+  {
+    height: 0;
+    visibility: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+:root
+{
+  interpolate-size: allow-keywords;
+}
+
+.resize-transition-stopper *
+{
+  transition: none !important;
+  animation: none !important;
+}
