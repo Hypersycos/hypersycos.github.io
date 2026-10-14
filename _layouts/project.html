@@ -88,17 +88,7 @@ layout: default
     {{ page.description | markdownify }}
     {% else %}
     {% if page.toc %}
-    <div class="floating-toc">
-        <nav class="toc collapsible-toc">
-            <h2>Contents</h2>
-            {% assign ordered = page.ordered | default: false %}
-            {% assign flat_toc = page.flat_toc | default: false %}
-            {% assign h_min = page.toc_min | default: 1 %}
-            {% assign h_max = page.toc_max | default: 6 %}
-            {% include toc.html html=content sanitize=sanitize class="inline_toc" id="inline_toc" h_min=h_min h_max=h_max flat_toc=flat_toc item_class="toc_item%level%" submenu_class="toc_menu%level%" ordered=ordered %}
-        </nav>
-        {% include collapsible-toc-js.html %}
-    </div>
+    {% include outer-toc.html content=content %}
     {% endif %}
     {{ content }}
     {% endif %}

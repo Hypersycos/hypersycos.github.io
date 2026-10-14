@@ -390,14 +390,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: calc(100vh - 12em);
+    justify-content: center;
+    height: calc(100vh - 12em);
 
     .toc
     {
-      overflow: auto;
       border-radius: 5px;
       border: #999 solid 1px;
       padding: 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
     }
 
     h2
@@ -406,12 +409,17 @@
       cursor: default !important;
       background: none !important;
       padding: 0 !important;
-      border-bottom: none !important;
+
+      border-bottom: #aaa solid 1px !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+      text-align: center;
     }
 
     ul
     {
       padding-left: 1em !important;
+      overflow: auto !important;
     }
 
     .collapsible-toc ul {
@@ -432,7 +440,7 @@
     border-radius: 5px;
     padding: .1em 1em;
     margin-bottom: 0;
-    transition: background .25s ease, border-bottom 0.25s ease;
+    transition: background .25s ease;
     border-bottom: solid #0000 0;
   }
 
@@ -450,9 +458,34 @@
     height: auto;
     overflow: hidden;
     visibility: visible;
-    transition: height 0.5s ease, display 0.5s ease, visibility 0.5s ease, padding 0.5s ease;
+  }
+}
 
-    transition-behavior: allow-discrete;
+@supports (interpolate-size: allow-keywords) {
+  /* Browsers with support can safely apply the transition */
+  .collapsible-toc
+  {
+    h2
+    {
+      transition: background .25s ease, border-bottom 0.25s ease;
+    }
+
+    ul
+    {
+      transition: height 0.5s ease, display 0.5s ease, visibility 0.5s ease, padding 0.5s ease;
+      transition-behavior: allow-discrete;
+    }
+  }
+
+  @starting-style
+  {
+    .collapsible-toc.was-clicked:not(.hidden) ul
+    {
+      height: 0;
+      visibility: hidden;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 }
 
@@ -472,18 +505,6 @@
   ul
   {
     display: none;
-    height: 0;
-    visibility: hidden;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-
-
-@starting-style
-{
-  .collapsible-toc.was-clicked:not(.hidden) ul
-  {
     height: 0;
     visibility: hidden;
     padding-top: 0;

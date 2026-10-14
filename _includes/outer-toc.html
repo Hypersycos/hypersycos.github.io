@@ -1,0 +1,17 @@
+{% assign collapsible = include.collapsible and include.collapsible != blank | default: true %}
+{% assign start_hidden = include.collapsible and include.collapsible != blank | default: false %}
+{% assign float = include.float and include.float != blank | default: true %}
+{% assign ordered = page.ordered | default: false %}
+{% assign flat_toc = page.flat_toc | default: false %}
+{% assign h_min = page.toc_min | default: 1 %}
+{% assign h_max = page.toc_max | default: 6 %}
+{% assign header = include.header | default: "Contents" %}
+<div {% if float %}class="floating-toc" {% endif %}>
+    <nav class="toc{% if collapsible %} collapsible-toc{% if start_hidden %} hidden{% endif %}{% endif %}">
+        <h2>{{header}}</h2>
+        {% include toc.html html=include.content sanitize=sanitize class="inline_toc" id="inline_toc" h_min=h_min h_max=h_max flat_toc=flat_toc item_class="toc_item%level%" submenu_class="toc_menu%level%" ordered=ordered %}
+    </nav>
+    {% if collapsible %}
+        {% include collapsible-toc-js.html %}
+    {% endif %}
+</div>
