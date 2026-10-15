@@ -7,16 +7,22 @@ technologies: [Unity, Netcode for Gameobjects]
 languages: [C#]
 skills: [Networking, Procedural Generation, UI]
 description: WIP co-op class-based shooter, with procedurally generated levels and objectives.
-images: [{preview: true, description: "Screenshot of gameplay"},
+images: [{youtube: "pq3UFd0-I8I", description: "Test youtube embed"},
+         {youtube: "pq3UFd0-I8I", description: "Test youtube embed"},
+         {preview: true, description: "Screenshot of gameplay"},
          {name: "Wrinkly.webp", description: "An extended generation of the 'Wrinkly' map type"},
          {name: "Islands.webp", description: "An extended generation of the 'Islands' map type"}]
 toc: true
 ---
 ## Summary
 
-### Summary of Game
+[Hi](#fig-1)
 
-### Summary of My Role (if relevant)
+{% include figure.html path="pq3UFd0-I8I" youtube=1 desc="Test yt figure" %}
+
+{% include figure.html path="Wrinkly.webp" slider=1 desc="Test yt figure" %}
+
+### Summary of Game
 
 ## Technical Details
 

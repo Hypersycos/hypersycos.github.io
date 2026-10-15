@@ -1,0 +1,59 @@
+{% unless figure_tracker %}
+  {% assign figure_tracker = "" | split:"," %}
+{% endunless %}
+
+{% assign figure_tracker = figure_tracker | push: page.path %}
+
+{% assign current_page_instances = figure_tracker | where_exp: "item", "item == page.path" %}
+{% assign display_number = current_page_instances.size %}
+
+{% if include.youtube %}
+    {% assign path = "https://www.youtube.com/embed/" | append: include.path %}
+{% elsif include.external %}
+    {% assign path = include.path %}
+{% elsif include.slider %}
+    {% assign path = "/public/images/projects/sliders/" | append: page.title | append: "/" | append: include.path | relative_url %}
+{% elsif include.path == "preview" %}
+    {% assign path = "/public/images/projects/previews/" | append: page.title | append: page.preview_format | relative_url %}
+{% else %}
+    {% assign path = include.path | relative_url %}
+{% endif %}
+
+<figure id="{% if include.ref %}{{ include.ref }}{% else %}fig-{{ display_number }}{% endif %}" class="float">
+    {% if include.youtube %}
+        <iframe src="{{path}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    {% else %}
+        <img onclick="fullscreenFigure(this)" src="{{ path }}" alt="{{ include.alt | default include.desc }}">
+    {% endif %}
+    <figcaption><b>Figure {{ display_number }}: </b>{{ include.desc }}</figcaption>
+</figure>
+{% if display_number == 1 %}
+<div onclick="fullscreenFigure(null)" id="fullscreen-figure-viewer" class="no-display">
+    <figure>
+        <img>
+        <figcaption></figcaption>
+    </figure>
+</div>
+<script>
+    const fullViewer = document.getElementById("fullscreen-figure-viewer");
+    const fullImg = fullViewer.querySelector("img");
+    const caption = fullViewer.querySelector("figcaption");
+    var current = null;
+
+    function fullscreenFigure(figure)
+    {
+        if (current == figure || figure == null)
+        {
+            fullViewer.classList.add("no-display");
+            current = null;
+        }
+        else
+        {
+            fullImg.src = figure.src;
+            caption.innerHTML = figure.parentElement.querySelector("figcaption").innerHTML;
+            fullViewer.classList.remove("no-display");
+            current = figure;
+        }
+    }
+</script>
+{% endif %}
