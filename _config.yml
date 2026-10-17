@@ -39,6 +39,8 @@ defaults:
     values:
       images:
         - preview: true
+      preview_format: ".webp"
+      toc: true
 
 # Custom vars
 version:          2.1.0
