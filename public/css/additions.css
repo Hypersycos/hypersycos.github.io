@@ -475,6 +475,11 @@
       text-align: center;
     }
 
+    h2::after
+    {
+      border-bottom: none !important;
+    }
+
     ul
     {
       padding-left: 1em !important;
@@ -502,6 +507,7 @@
     margin-bottom: 0;
     transition: background .25s ease;
     border-bottom: solid #0000 0;
+    text-shadow: none !important;
   }
 
   h2:hover
@@ -750,21 +756,69 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target
 @keyframes headingflash
 {
   0% { background: none; }
-  50%   { background: yellow; }
+  50%   { background: yellow; text-shadow: 3px 0 0 yellow, -3px 0 0 yellow, 1px 0 0 yellow, -1px 0 0 yellow; }
   100%   { background: none; }
 }
 
-h1
+/* h1
 {
   border-bottom: solid gray;
-}
+} */
 
-h2
+.page, .post
 {
-  border-bottom: solid gray 2px;
-}
+  h2
+  {
+    position: relative;
+    text-shadow: 3px 0 0 #ffffff, -3px 0 0 #ffffff, 1px 0 0 #ffffff, -1px 0 0 #ffffff;
+  }
 
-h3
-{
-  border-bottom: solid gray 1px;
+  h2::after
+  {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-bottom: solid gray 2px;
+    z-index: -1;
+  }
+
+  h3
+  {
+    position: relative;
+    text-shadow: 3px 0 0 #ffffff, -3px 0 0 #ffffff, 1px 0 0 #ffffff, -1px 0 0 #ffffff;
+  }
+
+  h3::after
+  {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: solid gray 1px;
+    z-index: -1;
+  }
+
+  h4
+  {
+    border-bottom: dashed gray 1px;
+    /* position: relative;
+    text-shadow: 3px 0 0 #ffffff, -3px 0 0 #ffffff, 1px 0 0 #ffffff, -1px 0 0 #ffffff; */
+  }
+
+  /* h4::after
+  {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: dashed gray 2px;
+    z-index: -1;
+  } */
 }
