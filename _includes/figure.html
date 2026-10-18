@@ -7,19 +7,22 @@
 {% assign current_page_instances = figure_tracker | where_exp: "item", "item == page.path" %}
 {% assign display_number = current_page_instances.size %}
 
+{% assign float = include.float | default: true, allow_false: true %}
+
 {% if include.youtube %}
     {% assign path = "https://www.youtube.com/embed/" | append: include.path %}
 {% elsif include.external %}
     {% assign path = include.path %}
-{% elsif include.slider %}
-    {% assign path = "/public/images/projects/sliders/" | append: page.title | append: "/" | append: include.path | relative_url %}
-{% elsif include.path == "preview" %}
-    {% assign path = "/public/images/projects/previews/" | append: page.title | append: page.preview_format | relative_url %}
+{% elsif include.project %}
+    {% assign path = "/public/images/projects/" | append: page.title | append: "/" | append: include.path | relative_url %}
+    {% unless include.path contains "." %}
+        {% assign path = path | append: ".webp" %}
+    {% endunless %}
 {% else %}
     {% assign path = include.path | relative_url %}
 {% endif %}
 
-<figure id="{% if include.ref %}{{ include.ref }}{% else %}fig-{{ display_number }}{% endif %}" class="float">
+<figure id="{% if include.ref %}{{ include.ref }}{% else %}fig-{{ display_number }}{% endif %}" class="{% if float %}float{% else %}inline{% endif %}">
     {% if include.youtube %}
         <iframe src="{{path}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     {% else %}

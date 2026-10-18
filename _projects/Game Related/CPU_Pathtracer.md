@@ -8,6 +8,7 @@ languages: [C++]
 technologies: []
 skills: [Multithreading, Monte-Carlo sampling]
 description: "A path-tracer implementing various BSDFs, rendering and sampling techniques, multithreading and denoising."
+images: [{name: "CPU_Pathtracer.webp"}]
 ---
 
 ## Overview

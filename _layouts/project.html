@@ -8,18 +8,8 @@ layout: default
     {% else %}
     <span class="post-date">{{ page.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}</span>
     {% endif %}
-    
-    {% if page.external_preview %}
-    {% assign preview_path = page.external_preview %}
-    {% assign display_img = true %}
-    {% else %}
-    {% assign title = page.path | split: '/' | last | split: '.' | first %}
-    {% assign preview_path = "/public/images/projects/previews/" | append: title | append: page.preview_format | relative_url %}
-    {% assign file = site.static_files | where: "path", preview_path | first %}
-    {% assign display_img = file %}
-    {% endif %}
 
-    {% assign img_path = "/public/images/projects/sliders/" | append: title | append: "/" | relative_url %}
+    {% assign img_path = "/public/images/projects/" | append: title | append: "/" | relative_url %}
 
     <div class="project-links">
         {% for link in page.links %}
@@ -31,12 +21,10 @@ layout: default
         <a href="{{link[1]}}">{% if extra %}{{extra}} {% endif %}{{link[0]}}</a>
         {% endfor %}
     </div>
-
-    {% if display_img %}
-        {% assign images = page.images %}
-    {% else %}
-        {% assign images = page.images | where_exp:"file", "file.preview != true" %}
-    {% endif %}
+    
+    {% assign ordered_images = page.images | where_exp:"file", "file.order" | sort: "order" %}
+    {% assign unordered_images = page.images | where_exp: "file", "file.order == blank" %}
+    {% assign images = ordered_images | concat: unordered_images %}
     {% assign image_count = images | size %}
 
     {% if image_count > 0 %}
@@ -67,13 +55,14 @@ layout: default
                 <div class="{% if forloop.first %}active-slider-img{% else %}exit-left-slider-img{% endif %}">
                     {% if file.youtube %}
                         <iframe src="https://www.youtube.com/embed/{{file.youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    {% else %}
-                        {% if file.preview %}
-                            {% assign src = preview_path | relative_url %}
+                    {% elsif file.path %}
+                        <img src={{ file.path }}>
+                    {% elsif file.name %}
+                        {% if file.name contains "." %}
+                            <img src={{ img_path | append: file.name }}>
                         {% else %}
-                            {% assign src = img_path | append: file.name %}
+                            <img src={{ img_path | append: file.name | append: ".webp" }}>
                         {% endif %}
-                        <img src={{ src }}>
                     {% endif %}
                     {% if file.description %}
                     <p class="slider-description">{{file.description}}</p>

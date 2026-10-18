@@ -37,9 +37,6 @@ defaults:
       path: ""          # Applies to files matching this path
       type: "projects"  # Your collection name (e.g., projects, posts, pages)
     values:
-      images:
-        - preview: true
-      preview_format: ".webp"
       toc: true
 
 # Custom vars
