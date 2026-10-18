@@ -11,3 +11,13 @@ languages: [TypeScript, HTML]
 skills: [Collaboration Skills]
 description: "A tool to assist musicians with \"jamming\" together online, by recording phrases and then playing all the recordings at once, effectively offset by one phase."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

@@ -8,3 +8,13 @@ languages: [Python]
 skills: [Networking]
 description: "A fully networked game of Noughts and Crosses, played with sub-grids of Noughts and Crosses."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

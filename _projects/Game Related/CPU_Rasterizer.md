@@ -8,3 +8,13 @@ languages: [C++]
 skills: [3D maths]
 description: "A Z-buffer rasteriser with back-face culling, linear attribute interpolation and Lambertian lighting."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

@@ -9,3 +9,13 @@ languages: [Python, SQL, JavaScript, HTML]
 skills: [Client Collaboration, Problem Analysis]
 description: "A food inventory system tailored to the specific needs of [a local food surplus distribution charity](https://www.eggcup.org/)."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

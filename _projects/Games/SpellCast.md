@@ -9,3 +9,13 @@ languages: [C#]
 skills: [Networking, Time Management, Collaboration Skills]
 description: "Prototype for a competitive arena game. Both teams race to destroy a central objective, unlocked by completing individual objectives unique to each class."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

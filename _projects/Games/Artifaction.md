@@ -9,3 +9,13 @@ languages: [C#]
 skills: [Networking, Procedural Generation]
 description: "WIP social deduction game that avoids player elimination."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

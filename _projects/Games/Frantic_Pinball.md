@@ -10,3 +10,13 @@ languages: [C#]
 skills: [Time Management, Group Management, Collaboration Skills]
 description: "A 1v1 mash-up of Pinball and Air Hockey, with various arcade-y features like power-ups and multiple balls."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

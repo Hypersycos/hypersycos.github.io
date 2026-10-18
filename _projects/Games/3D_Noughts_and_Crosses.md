@@ -8,3 +8,13 @@ languages: [Python]
 skills: [3D Maths]
 description: "2+ player Noughts and Crosses in 3D."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

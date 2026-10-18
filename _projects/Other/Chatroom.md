@@ -9,3 +9,13 @@ languages: [C++]
 skills: [Multithreading, Networking]
 description: "Networked chatroom with a server-client architecture. Supports custom usernames, user colours and private channels."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently

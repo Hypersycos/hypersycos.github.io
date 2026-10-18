@@ -9,3 +9,13 @@ technologies: []
 skills: [Multithreading, Monte-Carlo sampling]
 description: "A path-tracer implementing various BSDFs, rendering and sampling techniques, multithreading and denoising."
 ---
+
+## Overview
+
+## Technical Details
+
+## Reflections
+
+### What I Learned
+
+### What I'd Do Differently
