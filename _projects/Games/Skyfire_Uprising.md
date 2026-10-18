@@ -12,7 +12,7 @@ description: "Save Earth from an alien invasion!"
 images: [{preview: true, description: "Screenshot of gameplay"}]
 ---
 
-## Summary
+## Overview
 
 ### Summary of Game
 
@@ -51,9 +51,9 @@ I acted as a group leader, facilitating communication and task division. Technic
 - Co-ordinating with different groups to ensure inter-level cohesion
 - The waypoint system
 
-## Technical Details
+### Technical Overview
 
-### Overview
+## Technical Details
 
 ### Enemy Spawning
 
